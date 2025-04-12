@@ -8,7 +8,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   rules:
-  - host: www.beg.xx.berylia.org
+  - host: www.beg.xx.zombun.org
     http:
       paths:
       - path: /
@@ -20,5 +20,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - www.beg.xx.berylia.org
+    - www.beg.xx.zombun.org
 
