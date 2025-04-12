@@ -8,7 +8,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
-  - host: 10.255.0.29
+  - host: nginx-sample.10.255.0.29.nip.io
     http:
       paths:
       - path: /
