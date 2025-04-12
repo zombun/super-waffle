@@ -11,7 +11,7 @@ spec:
     targetRevision: 0.14.8  # Latest stable version as of April 2025, adjust if needed
     helm:
       valueFiles:
-      - https://raw.githubusercontent.com/<your-git-repo>/main/manifests/metallb-values.yaml
+      - https://raw.githubusercontent.com/zombun/super-waffle/refs/heads/main/apps/metallb/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: metallb-system
@@ -32,7 +32,7 @@ spec:
   source:
     repoURL: https://github.com/zombun/super-waffle
     targetRevision: HEAD
-    path: manifests
+    path: apps/metallb
   destination:
     server: https://kubernetes.default.svc
     namespace: metallb-system
