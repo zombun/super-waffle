@@ -8,7 +8,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
-  - host: nginx-sample.10.255.0.29.nip.io
+  - host: www.beg.xx.berylia.org
     http:
       paths:
       - path: /
