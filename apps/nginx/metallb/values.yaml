@@ -1,0 +1,13 @@
+# apps/metallb/values.yaml
+crds:
+  enabled: true
+
+controller:
+  nodeSelector: {}
+  tolerations: []
+
+speaker:
+  nodeSelector: {}
+  tolerations: []
+
+# Optional: set namespace if you're not using default "metallb-system"
