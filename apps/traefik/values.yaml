@@ -27,7 +27,7 @@ securityContext:
   runAsNonRoot: false
 ingressRoute:
   dashboard:
-    enabled: false
+    enabled: true
 logs:
   general:
     level: DEBUG
