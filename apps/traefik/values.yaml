@@ -17,9 +17,16 @@ ports:
 deployment:
   enabled: true
   replicas: 1
+securityContext:
+  capabilities:
+    drop: ["ALL"]
+    add: ["NET_BIND_SERVICE"]  # Allow binding to ports < 1024
+  runAsUser: 65532
+  runAsGroup: 65532
+  runAsNonRoot: true
 ingressRoute:
   dashboard:
-    enabled: false  # Disable dashboard for now; enable later if needed
+    enabled: false
 logs:
   general:
     level: INFO
