@@ -8,7 +8,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   rules:
-  - host: nginx-sample.10.255.0.29.nip.io
+  - host: www.beg.xx.berylia.org
     http:
       paths:
       - path: /
@@ -20,4 +20,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - nginx-sample.10.255.0.29.nip.io
+    - www.beg.xx.berylia.org
+
