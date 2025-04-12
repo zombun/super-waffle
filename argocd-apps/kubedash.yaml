@@ -11,7 +11,7 @@ spec:
     targetRevision: 7.6.0  # Latest as of April 2025
     helm:
       valueFiles:
-      - https://raw.githubusercontent.com/youruser/metallb-gitops/main/manifests/kubernetes-dashboard/values.yaml
+      - https://raw.githubusercontent.com/zombun/super-waffle/refs/heads/main/apps/kubernetes-dashboard/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: kubernetes-dashboard
