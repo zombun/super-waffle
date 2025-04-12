@@ -1,13 +1,8 @@
-# apps/metallb/values.yaml
-crds:
-  enabled: true
-
 controller:
-  nodeSelector: {}
-  tolerations: []
-
+  enabled: true
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "true"
 speaker:
-  nodeSelector: {}
-  tolerations: []
-
-# Optional: set namespace if you're not using default "metallb-system"
+  enabled: true
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "true"
