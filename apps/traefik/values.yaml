@@ -7,12 +7,12 @@ service:
     loadBalancerIP: 10.255.0.29
 ports:
   web:
-    port: 80
-    exposedPort: 80
+    port: 8000
+    exposedPort: 8000
     protocol: TCP
   websecure:
-    port: 443
-    exposedPort: 443
+    port: 4430
+    exposedPort: 4430
     protocol: TCP
 deployment:
   enabled: true
