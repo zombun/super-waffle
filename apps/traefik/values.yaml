@@ -20,7 +20,7 @@ deployment:
 securityContext:
   capabilities:
     drop: ["ALL"]
-    add: ["NET_BIND_SERVICE"]  # Allow binding to ports < 1024
+    add: ["NET_BIND_SERVICE"]  
   runAsUser: 0
   runAsGroup: 0
   runAsNonRoot: false
@@ -29,4 +29,4 @@ ingressRoute:
     enabled: false
 logs:
   general:
-    level: INFO
+    level: DEBUG
