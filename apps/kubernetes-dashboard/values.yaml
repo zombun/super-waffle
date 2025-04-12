@@ -1,0 +1,10 @@
+protocolHttp: false  # Use HTTPS via Traefik
+service:
+  externalPort: 443
+  type: ClusterIP
+ingress:
+  enabled: false  # We’ll use Traefik’s IngressRoute instead
+rbac:
+  clusterReadOnlyRole: true  # Read-only access for security
+settings:
+  clusterName: my-cluster
