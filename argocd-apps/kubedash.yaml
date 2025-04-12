@@ -30,9 +30,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/youruser/metallb-gitops.git
+    repoURL: https://github.com/zombun/super-waffle
     targetRevision: HEAD
-    path: manifests/kubernetes-dashboard
+    path: appss/kubernetes-dashboard
   destination:
     server: https://kubernetes.default.svc
     namespace: kubernetes-dashboard
