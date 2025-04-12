@@ -7,4 +7,4 @@ ingress:
 rbac:
   clusterReadOnlyRole: true  # Read-only access for security
 settings:
-  clusterName: my-cluster
+  clusterName: cluster.local
