@@ -24,3 +24,28 @@ spec:
     deviceFilter: "sdb"
     config:
       osdsPerDevice: "1"
+  resources:
+    api:
+      requests:
+          cpu: "125m"
+          memory: "256Mi"
+      limits:
+        memory: "512Mi"
+    mgr:
+      requests:
+          cpu: "125m"
+          memory: "256Mi"
+      limits:
+        memory: "512Mi"
+    mon:
+      requests:
+          cpu: "125m"
+          memory: "256Mi"
+      limits:
+        memory: "512Mi"
+    osd:
+      requests:
+          cpu: "125m"
+          memory: "256Mi"
+      limits:
+        memory: "512Mi"
