@@ -13,9 +13,6 @@ argocd-apps - deploy with argocd
 - Ceph
 - nginx sample app 
 
-
-
-
 # Argo CD
 
 ## [install](https://argo-cd.readthedocs.io/en/stable/)
@@ -25,7 +22,7 @@ kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
-## dashboard
+## [dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
 ```
 kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath={.data.password} | base64 -d
@@ -41,9 +38,7 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 
 ```
-kubectl create serviceaccount kubernetes-dashboard-admin -n kubernetes-dashboard
-kubectl create clusterrolebinding kubernetes-dashboard-admin --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:kubernetes-dashboard-admin
-kubectl -n kubernetes-dashboard create token kubernetes-dashboard-admin          
+
 ```
 ## Forward
 
@@ -60,6 +55,9 @@ kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy
 kubectl apply -f argocd-apps/rook-ceph-app.yaml
 ```
 
+[Check resource requirements](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Kubernetes-Platform-v2_12:top-rook-ceph-resource-requirements-r.html)
+
+
 ## dashboard
 
 username: admin
@@ -68,6 +66,11 @@ username: admin
 kubectl -n rook-ceph get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode && echo
 kubectl -n rook-ceph port-forward $(kubectl -n rook-ceph get pod -l app=rook-ceph-mgr -o jsonpath="{.items[0].metadata.name}") 7000:7000
 ```
+
+## cli
+
+TODO: https://rook.io/docs/rook/v1.14/Troubleshooting/ceph-toolbox/
+
 
 ## diagnostics
 
