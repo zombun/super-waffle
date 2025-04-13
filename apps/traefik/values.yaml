@@ -31,3 +31,5 @@ ingressRoute:
 logs:
   general:
     level: DEBUG
+additionalArguments:
+  - "--providers.kubernetesingress.ingressendpoint.publishedservice=traefik/traefik"
