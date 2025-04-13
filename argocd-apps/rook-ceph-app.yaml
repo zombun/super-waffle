@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: rook-ceph-cluster
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   destination:
     namespace: rook-ceph
