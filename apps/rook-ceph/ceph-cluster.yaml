@@ -46,6 +46,6 @@ spec:
     osd:
       requests:
           cpu: "125m"
-          memory: "256Mi"
+          memory: "512Mi"
       limits:
-        memory: "512Mi"
+        memory: "2048Mi"
