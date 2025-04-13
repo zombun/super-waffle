@@ -11,5 +11,5 @@ spec:
     targetPort: 8443
     protocol: TCP
   selector:
-    k8s-app: kubernetes-dashboard-web
+    app.kubernetes.io/name: kubernetes-dashboard-web  # Updated selector
   type: ClusterIP
