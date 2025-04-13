@@ -7,13 +7,10 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`www.beg.xx.zombun.org`) && PathPrefix(`/kubedash`)
+  - match: Host(`dashboard.beg.xx.zombun.org`)
     kind: Rule
     services:
     - name: kubernetes-dashboard
       port: 443
-    middlewares:
-    - name: kubedash-stripprefix
-      namespace: kubernetes-dashboard
   tls:
     secretName: nginx-tls
