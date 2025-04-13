@@ -1,0 +1,19 @@
+# apps/rook-ceph/rook-ceph-cluster-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rook-ceph-cluster
+  namespace: argocd
+spec:
+  destination:
+    namespace: rook-ceph
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/zombun/super-waffle
+    path: apps/rook-ceph
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
