@@ -24,10 +24,3 @@ spec:
     deviceFilter: "sdb"
     config:
       osdsPerDevice: "1"
-resources:
-  requests:
-    memory: "256Mi"
-    cpu: "256m"
-  limits:
-    memory: "2Gi"
-    cpu: "1"
