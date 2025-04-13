@@ -2,22 +2,24 @@
 
 # helm install mariadb bitnami/mariadb -f values.yaml --namespace mariadb
 
-mariadb:
-  rootPassword: "ls25"
-  user: ls25"
-  password: "ls25"
-  database: "your-database"
-  replicaCount: 1
+
+## mariadb-values.yaml
+auth:
+  rootPassword: "ls25"   
+  database: "ls25"   
+  username: "ls25"                
+  password: "ls25"           
+
+primary:
   persistence:
     enabled: true
     size: 8Gi
-    storageClass: "rook-ceph-block" # Set the correct storage class if needed
-    accessMode: ReadWriteOnce
-  primary:
-    persistentVolume:
-      storageClass: "rook-ceph-block" # Persistent volume for the primary instance
-      size: 8Gi
+    storageClass: "rook-ceph-block" # Optional
 
-service:
-  type: ClusterIP
-  port: 3306
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "250m"
+  limits:
+    memory: "1Gi"
+    cpu: "500m"

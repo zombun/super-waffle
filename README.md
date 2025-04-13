@@ -34,17 +34,24 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 ## Install
 
-## Create user
-
-
+```
+helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
+helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard --create-namespace --namespace kubernetes-dashboard
+kubectl apply -f apps/kubernetes-dashboard/auth.yaml 
 ```
 
+## Create admin user token
+
+```
+kubectl -n kubernetes-dashboard create token admin-user 
 ```
 ## Forward
 
 ```
 kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8443:443
 ```
+
+For some reason the url that needs to be used is https://127.0.0.1:8443/ and https://localhost:8443 does not work (authentication fails)
 
 
 # Ceph 
