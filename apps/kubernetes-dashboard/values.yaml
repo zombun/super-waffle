@@ -5,6 +5,11 @@ service:
 ingress:
   enabled: false  # We’ll use Traefik’s IngressRoute instead
 rbac:
-  clusterReadOnlyRole: true  # Read-only access for security
+  create: true
+  clusterReadOnlyRole: false
+  clusterAdminRole: true
+serviceAccount:
+  create: true
+  name: dashboard-user
 settings:
   clusterName: cluster.local
