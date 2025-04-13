@@ -32,6 +32,25 @@ kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath={.data.pass
 kubectl port-forward svc/argocd-server -n argocd 8080:443 
 ```
 
+# Kubernetes dashboard
+
+
+## Install
+
+## Create user
+
+
+```
+kubectl create serviceaccount kubernetes-dashboard-admin -n kubernetes-dashboard
+kubectl create clusterrolebinding kubernetes-dashboard-admin --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:kubernetes-dashboard-admin
+kubectl -n kubernetes-dashboard create token kubernetes-dashboard-admin          
+```
+## Forward
+
+```
+kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8443:443
+```
+
 
 # Ceph 
 
@@ -63,3 +82,4 @@ kubectl -n rook-ceph get service
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 kubectl top nodes
 ```
+
