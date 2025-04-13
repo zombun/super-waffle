@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mariadb
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: oci://registry-1.docker.io/bitnamicharts
+    chart: mariadb
+    targetRevision: 20.4.2  # ✅ Confirm this is a valid version: `helm search repo bitnami/mariadb`
+    helm:
+      values: |
+        auth:
+          rootPassword: "admin123"
+          username: "wp_user"
+          password: "wp_pass"
+          database: "wordpress"
+        primary:
+          persistence:
+            enabled: true
+            storageClass: rook-ceph-block
+            size: 8Gi
+        architecture: standalone
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mariadb
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
