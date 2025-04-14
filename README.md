@@ -117,7 +117,7 @@ To connect to your database:
 
   2. To connect to primary service (read/write):
 
-      mysql -h mariadb.mariadb.svc.cluster.local -uroot -p ls25
+      mysql -h mariadb.mariadb.svc.cluster.local -uroot -p ls25       
 
 To upgrade this helm chart:
 
@@ -158,3 +158,11 @@ To access your WordPress site from outside the cluster follow the steps below:
   echo Password: $(kubectl get secret --namespace wordpress my-wordpress -o jsonpath="{.data.wordpress-password}" | base64 -d)
 ```
 
+## Metrics server
+
+
+```
+helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
+helm repo update
+helm install metrics-server metrics-server/metrics-server -n kube-system -f ./apps/metrics-server/values.yaml
+```
