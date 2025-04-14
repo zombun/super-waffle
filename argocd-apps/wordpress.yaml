@@ -33,9 +33,9 @@ spec:
           type: ClusterIP
         ingress:
           enabled: true
-          hostname: wordpress.local  # Replace with your domain
+          hostname: www.beg.xx.zombun.org  # Replace with your domain
           annotations:
-            kubernetes.io/ingress.class: nginx  # Adjust if using a different Ingress controller
+            kubernetes.io/ingress.class: traefik  # Adjust if using a different Ingress controller
         resources:
           requests:
             cpu: "300m"

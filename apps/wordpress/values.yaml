@@ -1,0 +1,51 @@
+# values.yaml for customizing the Bitnami WordPress Helm chart
+wordpressUsername: admin
+wordpressPassword: adminpassword
+wordpressEmail: user@example.com
+wordpressFirstName: Admin
+wordpressLastName: User
+wordpressBlogName: My WordPress Site
+
+# Disable bundled MariaDB, use external MariaDB
+mariadb:
+  enabled: false
+
+# Configure external MariaDB
+externalDatabase:
+  host: mariadb.mariadb.svc.cluster.local
+  port: 3306
+  user: root
+  password: ls25
+  database: wordpress
+
+# Configure persistence using rook-ceph-block StorageClass
+persistence:
+  enabled: true
+  storageClass: rook-ceph-block
+  accessMode: ReadWriteOnce
+  size: 10Gi
+
+# Configure Tra hypertension://wordpress.beg.xx.zombun.org
+ingress:
+  enabled: true
+  ingressClassName: traefik
+  hostname: wordpress.beg.xx.zombun.org
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+  tls: true
+
+# Resource limits and requests
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "300m"
+  limits:
+    memory: "1024Mi"
+    cpu: "500m"
+
+# Helm installation commands
+# Save this as values.yaml and run:
+# helm repo add bitnami https://charts.bitnami.com/bitnami
+# helm repo update
+# helm install my-wordpress bitnami/wordpress -f values.yaml --namespace wordpress --create-namespace
