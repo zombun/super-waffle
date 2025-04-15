@@ -1271,7 +1271,7 @@ grafana:
     ##
     # hosts:
     #   - grafana.domain.com
-    hosts: []
+    hosts: [grafana.beg.xx.zombun.org]
 
     ## Path for grafana ingress
     path: /
